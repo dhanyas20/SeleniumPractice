@@ -1,0 +1,35 @@
+import org.openqa.selenium.By;  
+import org.openqa.selenium.WebDriver;  
+import org.openqa.selenium.firefox.FirefoxDriver;  
+import org.openqa.selenium.remote.DesiredCapabilities;  
+  
+public class CSSTagAndID {  
+  
+    public static void main(String[] args) {  
+          
+     // System Property for Gecko Driver   
+     System.setProperty("webdriver.gecko.driver","D:\\GeckoDriver\\geckodriver.exe" );  
+          
+     // Initialize Gecko Driver using Desired Capabilities Class  
+     DesiredCapabilities capabilities = DesiredCapabilities.firefox();  
+     capabilities.setCapability("marionette",true);  
+     WebDriver driver= new FirefoxDriver(capabilities);  
+          
+      
+      // Launch Website  
+      driver.navigate().to("https://www.testandquiz.com/selenium/testing.html");  
+      
+      // Click on the textbox and send value  
+	    // input#idname
+      driver.findElement(By.cssSelector("input#fname")).sendKeys("JavaTpoint");  
+       
+      // Click on the Submit button using click() command  
+      driver.findElement(By.cssSelector("button#idOfButton")).click();  
+   
+          
+      //  Close the Browser  
+      driver.close();  
+      
+    }  
+  
+}  
