@@ -1,0 +1,34 @@
+package guru99Application;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class guru99ApplicationTest {
+	
+      ChromeDriver driver;
+
+      String url = "http://demo.guru99.com/v4/";
+
+      @BeforeMethod
+      public void invokeBrowser() {
+
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Desktop\\Selenium Testing\\chromedriver.exe");
+        driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
+        driver.get(url);
+
+      }
+
+      @Test
+      public void verifyTitleOfThePage() {
+
+        String expectedTitle = "guru99 Back Home Page";
+        String actualTitle = driver.getTitle();
+
+        Assert.assertEquals(actualTitle,expectedTitle);
+
+      }
+}
